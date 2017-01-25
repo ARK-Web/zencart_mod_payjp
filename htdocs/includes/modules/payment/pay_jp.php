@@ -186,7 +186,7 @@ class pay_jp extends base {
 									 . MODULE_PAYMENT_PAYJP_TEXT_CHARGE_ID .": ". $payment_payjp['id'] . "\n"
 									 . MODULE_PAYMENT_PAYJP_TEXT_CHARGE_FINGERPRINT .": ". $payment_payjp['fingerprint'];
 		}
-		$db->Execute("update " . TABLE_ORDERS_STATUS_HISTORY . " set comments='" . $order->info['comments'] . "' where orders_id='$insert_id'");
+		$db->Execute("update " . TABLE_ORDERS_STATUS_HISTORY . " set comments='" . zen_db_input($order->info['comments']) . "' where orders_id='$insert_id'");
 		
 		// orders のステータスも更新
 		$sql_data_array = array(
